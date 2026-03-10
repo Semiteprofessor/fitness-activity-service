@@ -1,14 +1,13 @@
 package com.fitness.activityservice.dto;
 
 import com.fitness.activityservice.model.ActivityType;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.mongodb.core.mapping.Field;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.Map;
 
-public class ActivitResponse {
+@Data
+public class ActivityResponse {
     private String id;
     private String userId;
     private ActivityType type;
@@ -16,13 +15,10 @@ public class ActivitResponse {
     private Integer caloriesBurned;
     private LocalDateTime startTime;
 
-    @Field("metrics")
     private Map<String, Object> additionalMetrics;
 
-    @CreatedDate
     private LocalDateTime createdAt;
 
-    @LastModifiedDate
     private LocalDateTime updatedAt;
 
 }
