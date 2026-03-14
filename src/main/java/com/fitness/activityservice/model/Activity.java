@@ -30,6 +30,12 @@ public class Activity {
     @Field("metrics")
     private Map<String, Object> additionalMetrics;
 
+    private Map<String, Object> location;
+
+    private String device;
+
+    private String source;
+
     @CreatedDate
     private LocalDateTime createdAt;
 

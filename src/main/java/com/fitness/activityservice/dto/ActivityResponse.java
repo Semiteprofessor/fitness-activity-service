@@ -14,11 +14,11 @@ public class ActivityResponse {
     private Integer duration;
     private Integer caloriesBurned;
     private LocalDateTime startTime;
-
     private Map<String, Object> additionalMetrics;
-
+    private Map<String, Object> location;
+    private String device;
+    private String source;
     private LocalDateTime createdAt;
-
     private LocalDateTime updatedAt;
 
 }

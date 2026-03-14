@@ -1,9 +1,10 @@
+server:
+  port: 8082
+
 spring:
   application:
     name: activityservice
-  mongodb:
-    database: fitness
-    uri: mongodb://localhost:27017/fitness
 
-server:
-  port: 8082
+  mongodb:
+    database: Fitness
+    uri: mongodb://localhost:27017/Fitness
