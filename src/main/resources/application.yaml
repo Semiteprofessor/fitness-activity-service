@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: activityservice
+    name: activity-service
 
   mongodb:
     database: Fitness
