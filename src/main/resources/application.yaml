@@ -6,5 +6,19 @@ spring:
     name: activity-service
 
   mongodb:
-    database: Fitness
-    uri: mongodb://localhost:27017/Fitness
+    uri: mongodb://localhost:27017/fitness
+    database: fitness
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
+rabbitmq:
+  exchange:
+    name: fitness.exchange
+  queue:
+    name: activity.queue
+  routing:
+    key: activity.tracking

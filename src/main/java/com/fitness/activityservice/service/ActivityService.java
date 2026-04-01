@@ -5,6 +5,7 @@ import com.fitness.activityservice.dto.ActivityResponse;
 import com.fitness.activityservice.model.Activity;
 import com.fitness.activityservice.repository.ActivityRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +16,19 @@ import java.util.stream.Collectors;
 public class ActivityService {
 
     private final ActivityRepository activityRepository;
+    private final UserValidationService userValidationService;
+
+    @Value("${rabbitmq.exchange.name")
+    private String exchange;
+
+    @Value("${rabbitmq.exchange.key")
+    private String routingKey;
 
     public ActivityResponse trackActivity(ActivityRequest request) {
+        boolean isValidUser = userValidationService.validateUser(request.getUserId());
+        if (isValidUser) {
+            throw new RuntimeException("Invalid User: " + request.getUserId());
+        }
         Activity activity = Activity.builder()
                 .userId(request.getUserId())
                 .type(request.getType())
